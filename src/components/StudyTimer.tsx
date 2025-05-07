@@ -52,7 +52,7 @@ export default function StudyTimer() {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-green-100 p-4">
       <div className="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-lg">
         <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
-          ⏱️ Study Timer
+          ⏱️ Focus Track
         </h1>
 
         <div className="text-center mb-6">
