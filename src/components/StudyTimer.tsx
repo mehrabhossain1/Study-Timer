@@ -48,6 +48,13 @@ export default function StudyTimer() {
     resetTimer();
   };
 
+  // Dynamic timer on the tab/titlebar
+  useEffect(() => {
+    document.title = isRunning
+      ? `⏱️ ${formatTime(seconds)} - Studying`
+      : "📚 Focus Track";
+  }, [seconds, isRunning]);
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-green-100 p-4">
       <div className="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-lg">
