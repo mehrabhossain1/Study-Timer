@@ -1,54 +1,77 @@
-# React + TypeScript + Vite
+# ⏱️ FocusTrack – Study Timer App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A clean and minimal **Study Timer App** built using **React**, **TypeScript**, and **Tailwind CSS**. Track your study sessions, stay focused, and improve your productivity.
 
-Currently, two official plugins are available:
+![Cover Screenshot](./focus-track.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- ⏳ Start, pause, and reset the timer
+- ✅ Save completed study sessions
+- 🧠 History is stored locally (localStorage)
+- 📌 Live timer updates in the browser tab
+- 🎯 Simple, elegant, and responsive UI
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Tech Stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+---
+
+## 📦 Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/focus-track.git
+cd focus-track
+2. Install dependencies
+bash
+Copy
+Edit
+npm install
+3. Start the development server
+bash
+Copy
+Edit
+npm run dev
+4. Visit in browser
+arduino
+Copy
+Edit
+http://localhost:5173
+📸 Screenshots
+🕐 Timer Interface
+
+📚 Session History
+
+🔮 Roadmap
+🔔 Add optional sound or browser notifications
+
+📈 Add a dashboard to visualize study trends
+
+⏱️ Support Pomodoro timer cycles
+
+📤 Export history to CSV or JSON
+
+📄 License
+This project is licensed under the MIT License.
+
+🧑‍💻 Author
+Mehrab Hossain
+Full-Stack Developer | AI Explorer
+
+GitHub: @mehrabhossain1
+
+# Portfolio: mehrab.dev
+
+LinkedIn: Mehrab Hossain
+
+“Focus is the gateway to all thinking.” – Daniel Goleman
 ```
