@@ -2,7 +2,7 @@
 
 A clean and minimal **Study Timer App** built using **React**, **TypeScript**, and **Tailwind CSS**. Track your study sessions, stay focused, and improve your productivity.
 
-![Cover Screenshot](./focus-track.png)
+![Cover Screenshot](/focus-track.png)
 
 ---
 
