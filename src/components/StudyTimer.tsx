@@ -51,7 +51,7 @@ export default function StudyTimer() {
   // Dynamic timer on the tab/titlebar
   useEffect(() => {
     document.title = isRunning
-      ? `⏱️ ${formatTime(seconds)} - Studying`
+      ? `${formatTime(seconds)} - Studying`
       : "Focus Track";
   }, [seconds, isRunning]);
 
