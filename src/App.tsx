@@ -8,7 +8,7 @@ function App() {
     return (
         <Router>
             <Navbar />
-            <Routes className="">
+            <Routes>
                 <Route path="/" element={<StudyTimer />} />
                 <Route path="/expenses" element={<ExpenseTracker />} />
                 <Route
