@@ -91,7 +91,7 @@ export default function ExpenseTracker() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-green-50 to-blue-50 p-4">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-fuchsia-100 via-fuchsia-50 to-fuchsia-50 p-4">
             <motion.div
                 className="w-full max-w-4xl p-6 rounded-2xl shadow-xl bg-white/70 backdrop-blur-md space-y-10"
                 initial={{ opacity: 0, y: 20 }}
