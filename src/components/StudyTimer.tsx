@@ -52,7 +52,7 @@ export default function StudyTimer() {
     useEffect(() => {
         document.title = isRunning
             ? `${formatTime(seconds)} - Studying`
-            : "Focus Track";
+            : "Be Productive";
     }, [seconds, isRunning]);
 
     return (

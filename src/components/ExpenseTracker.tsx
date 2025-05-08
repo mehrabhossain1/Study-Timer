@@ -133,7 +133,7 @@ export default function ExpenseTracker() {
                         />
                         <Button
                             onClick={handleAddMoney}
-                            className="bg-green-500 hover:bg-green-600 text-white px-5 py-2.5 rounded-md transition"
+                            className="bg-green-500 hover:bg-green-600 text-white px-5 py-2.5 rounded-full transition"
                         >
                             Add
                         </Button>
@@ -173,7 +173,7 @@ export default function ExpenseTracker() {
                         />
                         <Button
                             onClick={handleAddExpense}
-                            className="bg-red-500 hover:bg-red-600 text-white px-5 py-2.5 rounded-md transition"
+                            className="bg-red-500 hover:bg-red-600 text-white rounded-full px-5 py-2.5transition"
                         >
                             Spend
                         </Button>

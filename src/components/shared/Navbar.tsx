@@ -6,8 +6,8 @@ export default function Navbar() {
     const navItemClass = (path: string) =>
         `px-4 py-2 rounded transition ${
             pathname === path
-                ? "bg-[#9941FF] text-white"
-                : "text-gray-700 hover:bg-gray-200"
+                ? "bg-[#9941FF] text-white rounded-full font-semibold"
+                : "text-gray-700 hover:bg-gray-200 hover:text-gray-900 hover:rounded-full rounded-full font-semibold"
         }`;
 
     return (
