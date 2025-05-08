@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Button } from "./ui/button";
 
 type Entry = {
     id: string;
@@ -113,12 +114,12 @@ export default function ExpenseTracker() {
                         onChange={(e) => setAddDate(e.target.value)}
                         className="border p-2 rounded w-full"
                     />
-                    <button
+                    <Button
                         onClick={handleAddMoney}
                         className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
                     >
                         Add
-                    </button>
+                    </Button>
                 </div>
             </div>
 
@@ -147,12 +148,12 @@ export default function ExpenseTracker() {
                         onChange={(e) => setSpendDate(e.target.value)}
                         className="border p-2 rounded w-full"
                     />
-                    <button
+                    <Button
                         onClick={handleAddExpense}
                         className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
                     >
                         Spend
-                    </button>
+                    </Button>
                 </div>
             </div>
 
