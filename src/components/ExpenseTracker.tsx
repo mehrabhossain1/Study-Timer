@@ -91,170 +91,175 @@ export default function ExpenseTracker() {
     };
 
     return (
-        <motion.div
-            className="min-h-screen max-w-3xl mx-auto p-6 rounded-xl shadow-md space-y-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-        >
-            <motion.h1
-                className="text-2xl font-bold text-center text-gray-800"
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: 0.2 }}
-            >
-                💼 My Expense Tracker
-            </motion.h1>
-
-            {/* Money Bag Section */}
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-green-50 to-blue-50 p-4">
             <motion.div
-                className="bg-gray-100 p-4 rounded-md"
-                initial={{ opacity: 0, y: 10 }}
+                className="w-full max-w-4xl p-6 rounded-2xl shadow-xl bg-white/70 backdrop-blur-md space-y-10"
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
+                transition={{ duration: 0.5 }}
             >
-                <h2 className="text-lg font-semibold mb-2">
-                    💰 Add to Money Bag
-                </h2>
-                <div className="flex flex-col sm:flex-row gap-4">
-                    <input
-                        type="number"
-                        placeholder="Amount"
-                        value={addAmount}
-                        onChange={(e) => setAddAmount(e.target.value)}
-                        className="border p-2 rounded w-full"
-                    />
-                    <input
-                        type="date"
-                        value={addDate}
-                        onChange={(e) => setAddDate(e.target.value)}
-                        className="border p-2 rounded w-full"
-                    />
-                    <Button
-                        onClick={handleAddMoney}
-                        className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
-                    >
-                        Add
-                    </Button>
-                </div>
-            </motion.div>
+                <motion.h1
+                    className="text-3xl font-bold text-center text-gray-800"
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ delay: 0.2 }}
+                >
+                    💼 My Expense Tracker
+                </motion.h1>
 
-            {/* Expense Section */}
-            <motion.div
-                className="bg-gray-100 p-4 rounded-md"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-            >
-                <h2 className="text-lg font-semibold mb-2">
-                    🧾 Add an Expense
-                </h2>
-                <div className="flex flex-col sm:flex-row gap-4">
-                    <input
-                        type="number"
-                        placeholder="Amount"
-                        value={spendAmount}
-                        onChange={(e) => setSpendAmount(e.target.value)}
-                        className="border p-2 rounded w-full"
-                    />
-                    <input
-                        type="text"
-                        placeholder="What for?"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                        className="border p-2 rounded w-full"
-                    />
-                    <input
-                        type="date"
-                        value={spendDate}
-                        onChange={(e) => setSpendDate(e.target.value)}
-                        className="border p-2 rounded w-full"
-                    />
-                    <Button
-                        onClick={handleAddExpense}
-                        className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-                    >
-                        Spend
-                    </Button>
-                </div>
-            </motion.div>
+                {/* Add Money Section */}
+                <motion.div
+                    className="bg-white border border-green-100 p-6 rounded-xl shadow-sm"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                >
+                    <h2 className="text-xl font-semibold mb-4 text-green-700">
+                        💰 Add to Money Bag
+                    </h2>
+                    <div className="flex flex-col items-center sm:flex-row gap-4">
+                        <input
+                            type="number"
+                            placeholder="Amount"
+                            value={addAmount}
+                            onChange={(e) => setAddAmount(e.target.value)}
+                            className="border border-gray-300 p-3 rounded-md w-full focus:ring-2 focus:ring-green-300 outline-none"
+                        />
+                        <input
+                            type="date"
+                            value={addDate}
+                            onChange={(e) => setAddDate(e.target.value)}
+                            className="border border-gray-300 p-3 rounded-md w-full focus:ring-2 focus:ring-green-300 outline-none"
+                        />
+                        <Button
+                            onClick={handleAddMoney}
+                            className="bg-green-500 hover:bg-green-600 text-white px-5 py-2.5 rounded-md transition"
+                        >
+                            Add
+                        </Button>
+                    </div>
+                </motion.div>
 
-            {/* Balance Display */}
-            <motion.div
-                className="text-center text-xl font-semibold text-blue-700"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5 }}
-            >
-                Current Balance: ৳ {balance.toFixed(2)}
-            </motion.div>
+                {/* Add Expense Section */}
+                <motion.div
+                    className="bg-white border border-red-100 p-6 rounded-xl shadow-sm"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                >
+                    <h2 className="text-xl font-semibold mb-4 text-red-700">
+                        🧾 Add an Expense
+                    </h2>
+                    <div className="flex flex-col items-center sm:flex-row gap-4">
+                        <input
+                            type="number"
+                            placeholder="Amount"
+                            value={spendAmount}
+                            onChange={(e) => setSpendAmount(e.target.value)}
+                            className="border border-gray-300 p-3 rounded-md w-full focus:ring-2 focus:ring-red-300 outline-none"
+                        />
+                        <input
+                            type="text"
+                            placeholder="What for?"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                            className="border border-gray-300 p-3 rounded-md w-full focus:ring-2 focus:ring-red-300 outline-none"
+                        />
+                        <input
+                            type="date"
+                            value={spendDate}
+                            onChange={(e) => setSpendDate(e.target.value)}
+                            className="border border-gray-300 p-3 rounded-md w-full focus:ring-2 focus:ring-red-300 outline-none"
+                        />
+                        <Button
+                            onClick={handleAddExpense}
+                            className="bg-red-500 hover:bg-red-600 text-white px-5 py-2.5 rounded-md transition"
+                        >
+                            Spend
+                        </Button>
+                    </div>
+                </motion.div>
 
-            {/* Lists */}
-            {/* Lists */}
-            <motion.div
-                className="grid md:grid-cols-2 gap-4"
-                initial="hidden"
-                animate="visible"
-                variants={{
-                    hidden: {},
-                    visible: {
-                        transition: {
-                            staggerChildren: 0.1,
+                {/* Balance Display */}
+                <motion.div
+                    className="text-center text-2xl font-semibold text-indigo-600"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.5 }}
+                >
+                    Current Balance: ৳ {balance.toFixed(2)}
+                </motion.div>
+
+                {/* Lists */}
+                <motion.div
+                    className="grid md:grid-cols-2 gap-6"
+                    initial="hidden"
+                    animate="visible"
+                    variants={{
+                        hidden: {},
+                        visible: {
+                            transition: {
+                                staggerChildren: 0.1,
+                            },
                         },
-                    },
-                }}
-            >
-                {/* Money Added List */}
-                <motion.div>
-                    <h3 className="text-lg font-bold mb-2">📥 Money Added</h3>
-                    <ul className="space-y-1">
-                        <AnimatePresence>
-                            {moneyBag
-                                .slice()
-                                .reverse()
-                                .map((entry) => (
-                                    <motion.li
-                                        key={entry.id}
-                                        className="border p-2 rounded bg-green-50"
-                                        initial={{ opacity: 0, x: -20 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        exit={{ opacity: 0, x: -20 }}
-                                        layout
-                                    >
-                                        ৳ {entry.amount.toFixed(2)} –{" "}
-                                        {formatDate(entry.date)}
-                                    </motion.li>
-                                ))}
-                        </AnimatePresence>
-                    </ul>
-                </motion.div>
+                    }}
+                >
+                    {/* Money Added List */}
+                    <motion.div>
+                        <h3 className="text-lg font-bold mb-3 text-green-800">
+                            📥 Money Added
+                        </h3>
+                        <ul className="space-y-2">
+                            <AnimatePresence>
+                                {moneyBag
+                                    .slice()
+                                    .reverse()
+                                    .map((entry) => (
+                                        <motion.li
+                                            key={entry.id}
+                                            className="border border-green-100 p-3 rounded-md bg-green-50/50 hover:bg-green-100 transition"
+                                            initial={{ opacity: 0, x: -20 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            exit={{ opacity: 0, x: -20 }}
+                                            layout
+                                        >
+                                            ৳ {entry.amount.toFixed(2)} –{" "}
+                                            {formatDate(entry.date)}
+                                        </motion.li>
+                                    ))}
+                            </AnimatePresence>
+                        </ul>
+                    </motion.div>
 
-                {/* Expense List */}
-                <motion.div>
-                    <h3 className="text-lg font-bold mb-2">📤 Expenses</h3>
-                    <ul className="space-y-1">
-                        <AnimatePresence>
-                            {expenses
-                                .slice()
-                                .reverse()
-                                .map((entry) => (
-                                    <motion.li
-                                        key={entry.id}
-                                        className="border p-2 rounded bg-red-50"
-                                        initial={{ opacity: 0, x: 20 }}
-                                        animate={{ opacity: 1, x: 0 }}
-                                        exit={{ opacity: 0, x: 20 }}
-                                        layout
-                                    >
-                                        ৳ {entry.amount.toFixed(2)} –{" "}
-                                        {entry.description} –{" "}
-                                        {formatDate(entry.date)}
-                                    </motion.li>
-                                ))}
-                        </AnimatePresence>
-                    </ul>
+                    {/* Expense List */}
+                    <motion.div>
+                        <h3 className="text-lg font-bold mb-3 text-red-800">
+                            📤 Expenses
+                        </h3>
+                        <ul className="space-y-2">
+                            <AnimatePresence>
+                                {expenses
+                                    .slice()
+                                    .reverse()
+                                    .map((entry) => (
+                                        <motion.li
+                                            key={entry.id}
+                                            className="border border-red-100 p-3 rounded-md bg-red-50/50 hover:bg-red-100 transition"
+                                            initial={{ opacity: 0, x: 20 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            exit={{ opacity: 0, x: 20 }}
+                                            layout
+                                        >
+                                            ৳ {entry.amount.toFixed(2)} –{" "}
+                                            {entry.description} –{" "}
+                                            {formatDate(entry.date)}
+                                        </motion.li>
+                                    ))}
+                            </AnimatePresence>
+                        </ul>
+                    </motion.div>
                 </motion.div>
             </motion.div>
-        </motion.div>
+        </div>
     );
 }
