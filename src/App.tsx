@@ -1,21 +1,22 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import ExpenseTracker from "./components/ExpenseTracker";
+
 import StudyTimer from "./components/StudyTimer";
+import Navbar from "./components/shared/Navbar";
 
 function App() {
     return (
-        <>
-            <Router>
-                <Routes>
-                    <Route path="/" element={<StudyTimer />} />
-                    <Route path="/expenses" element={<ExpenseTracker />} />
-                    {/* <Route path="/inventory" element={<Inventory />} />
-          <Route path="/inventory/add" element={<AddInventory />} />
-          <Route path="/sales" element={<Sales />} />
-          <Route path="/sales/add" element={<AddSale />} /> */}
-                </Routes>
-            </Router>
-        </>
+        <Router>
+            <Navbar />
+            <Routes>
+                <Route path="/" element={<StudyTimer />} />
+                <Route path="/expenses" element={<ExpenseTracker />} />
+                <Route
+                    path="*"
+                    element={<div className="p-8">404 Not Found</div>}
+                />
+            </Routes>
+        </Router>
     );
 }
 

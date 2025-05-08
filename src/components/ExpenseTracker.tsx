@@ -1,5 +1,5 @@
 "use client";
-
+import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 
@@ -91,12 +91,28 @@ export default function ExpenseTracker() {
     };
 
     return (
-        <div className="min-h-screen max-w-3xl mx-auto p-6 bg-white rounded-xl shadow-md space-y-8">
-            <h1 className="text-2xl font-bold text-center text-gray-800">
+        <motion.div
+            className="min-h-screen max-w-3xl mx-auto p-6 rounded-xl shadow-md space-y-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+        >
+            <motion.h1
+                className="text-2xl font-bold text-center text-gray-800"
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.2 }}
+            >
                 💼 My Expense Tracker
-            </h1>
+            </motion.h1>
 
-            <div className="bg-gray-100 p-4 rounded-md">
+            {/* Money Bag Section */}
+            <motion.div
+                className="bg-gray-100 p-4 rounded-md"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+            >
                 <h2 className="text-lg font-semibold mb-2">
                     💰 Add to Money Bag
                 </h2>
@@ -121,9 +137,15 @@ export default function ExpenseTracker() {
                         Add
                     </Button>
                 </div>
-            </div>
+            </motion.div>
 
-            <div className="bg-gray-100 p-4 rounded-md">
+            {/* Expense Section */}
+            <motion.div
+                className="bg-gray-100 p-4 rounded-md"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+            >
                 <h2 className="text-lg font-semibold mb-2">
                     🧾 Add an Expense
                 </h2>
@@ -155,43 +177,84 @@ export default function ExpenseTracker() {
                         Spend
                     </Button>
                 </div>
-            </div>
+            </motion.div>
 
-            <div className="text-center text-xl font-semibold text-blue-700">
+            {/* Balance Display */}
+            <motion.div
+                className="text-center text-xl font-semibold text-blue-700"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5 }}
+            >
                 Current Balance: ৳ {balance.toFixed(2)}
-            </div>
+            </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-4">
-                <div>
+            {/* Lists */}
+            {/* Lists */}
+            <motion.div
+                className="grid md:grid-cols-2 gap-4"
+                initial="hidden"
+                animate="visible"
+                variants={{
+                    hidden: {},
+                    visible: {
+                        transition: {
+                            staggerChildren: 0.1,
+                        },
+                    },
+                }}
+            >
+                {/* Money Added List */}
+                <motion.div>
                     <h3 className="text-lg font-bold mb-2">📥 Money Added</h3>
                     <ul className="space-y-1">
-                        {moneyBag.map((entry) => (
-                            <li
-                                key={entry.id}
-                                className="border p-2 rounded bg-green-50"
-                            >
-                                ৳ {entry.amount.toFixed(2)} –{" "}
-                                {formatDate(entry.date)}
-                            </li>
-                        ))}
+                        <AnimatePresence>
+                            {moneyBag
+                                .slice()
+                                .reverse()
+                                .map((entry) => (
+                                    <motion.li
+                                        key={entry.id}
+                                        className="border p-2 rounded bg-green-50"
+                                        initial={{ opacity: 0, x: -20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: -20 }}
+                                        layout
+                                    >
+                                        ৳ {entry.amount.toFixed(2)} –{" "}
+                                        {formatDate(entry.date)}
+                                    </motion.li>
+                                ))}
+                        </AnimatePresence>
                     </ul>
-                </div>
+                </motion.div>
 
-                <div>
+                {/* Expense List */}
+                <motion.div>
                     <h3 className="text-lg font-bold mb-2">📤 Expenses</h3>
                     <ul className="space-y-1">
-                        {expenses.map((entry) => (
-                            <li
-                                key={entry.id}
-                                className="border p-2 rounded bg-red-50"
-                            >
-                                ৳ {entry.amount.toFixed(2)} –{" "}
-                                {entry.description} – {formatDate(entry.date)}
-                            </li>
-                        ))}
+                        <AnimatePresence>
+                            {expenses
+                                .slice()
+                                .reverse()
+                                .map((entry) => (
+                                    <motion.li
+                                        key={entry.id}
+                                        className="border p-2 rounded bg-red-50"
+                                        initial={{ opacity: 0, x: 20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: 20 }}
+                                        layout
+                                    >
+                                        ৳ {entry.amount.toFixed(2)} –{" "}
+                                        {entry.description} –{" "}
+                                        {formatDate(entry.date)}
+                                    </motion.li>
+                                ))}
+                        </AnimatePresence>
                     </ul>
-                </div>
-            </div>
-        </div>
+                </motion.div>
+            </motion.div>
+        </motion.div>
     );
 }
